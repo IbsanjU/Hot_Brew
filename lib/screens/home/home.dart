@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart ';
 import 'package:hot_brew/services/auth.dart';
-import 'package:hot_brew/services/auth.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();

@@ -37,6 +37,7 @@ class AuthService {
   Future signOut() async {
     // Future because its an Async feature
     try {
+      print(_auth.currentUser.uid + ' Logged Out');
       return await _auth.signOut();
     } catch (e) {
       print(e.toString());
