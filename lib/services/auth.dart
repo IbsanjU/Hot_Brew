@@ -19,7 +19,6 @@ class AuthService {
 
 // Sign in anonomously
   Future sigiInAnon() async {
-    
     try {
       UserCredential result = await _auth.signInAnonymously();
       final User user = result.user;
@@ -35,5 +34,13 @@ class AuthService {
 // Register with email & password
 
 // Sign out
-
+  Future signOut() async {
+    // Future because its an Async feature
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
