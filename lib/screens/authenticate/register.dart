@@ -11,10 +11,12 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
+  final _formKeyR = GlobalKey<FormState>();
 
   // text field state
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -36,20 +38,25 @@ class _RegisterState extends State<Register> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
+          key: _formKeyR,
           child: Column(
             children: <Widget>[
               SizedBox(height: 20.0),
 
               // Email FormField
               TextFormField(
+                validator: (val) => val.isEmpty ? 'Enter an Email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
                 },
               ),
               SizedBox(height: 20.0),
 
-              // Email FormField
+              // Password FormField
               TextFormField(
+                validator: (val) => val.length < 6
+                    ? 'Enter the password 6+ Character long'
+                    : null,
                 obscureText: true,
                 onChanged: (val) {
                   setState(() => password = val);
@@ -62,9 +69,22 @@ class _RegisterState extends State<Register> {
                 color: Colors.pink[400],
                 child: Text('Register', style: TextStyle(color: Colors.white)),
                 onPressed: () async {
-                  print('email: ' + email);
-                  print('password: ' + password);
+                  if (_formKeyR.currentState.validate()) {
+                    dynamic result = await _auth.registerWIthEmailAndPassword(
+                        email, password);
+                    if (result == null) {
+                      setState(() => error = 'please supply a valid email');
+                    }
+                    print('email: ' + email);
+                    print('password: ' + password);
+                  }
                 },
+              ),
+              SizedBox(height: 12.0),
+              // Error Text Field
+              Text(
+                error,
+                style: TextStyle(color: Colors.red, fontSize: 14.0),
               )
             ],
           ),
