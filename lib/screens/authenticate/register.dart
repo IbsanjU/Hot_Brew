@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hot_brew/services/auth.dart';
 
 class Register extends StatefulWidget {
+  final Function toggleView;
+  Register({this.toggleView});
+
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -21,6 +24,14 @@ class _RegisterState extends State<Register> {
         backgroundColor: Colors.brown[400],
         elevation: 2.0,
         title: Text('Sign Up to Hot Brew'),
+        actions: <Widget>[
+          FlatButton.icon(
+              onPressed: () {
+                widget.toggleView();
+              },
+              icon: Icon(Icons.person),
+              label: Text('Sign In'))
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
