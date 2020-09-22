@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hot_brew/models/user.dart';
 import 'package:hot_brew/services/database.dart';
@@ -80,6 +79,15 @@ class _SettingsFormState extends State<SettingsForm> {
 
                   RaisedButton(
                     onPressed: () async {
+                      if (_formKey.currentState.validate()) {
+                        await DatabaseService(uid: user.uid).updateUserData(
+                          _currentSugars ?? userData.sugars,
+                          _currentName ?? userData.name,
+                          _currentStrength ?? userData.strength,
+                        );
+                        Navigator.pop(context);
+                      }
+
                       print(_currentName);
                       print(_currentSugars);
                       print(_currentStrength);
