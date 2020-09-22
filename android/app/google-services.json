@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "33880955070",
+    "firebase_url": "https://hot-brew.firebaseio.com",
+    "project_id": "hot-brew",
+    "storage_bucket": "hot-brew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33880955070:android:58f2e2a6e22d8bdc4aa6ef",
+        "android_client_info": {
+          "package_name": "com.ibsanju.hot_brew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33880955070-ju1o940o567gtbnf4u54rnmntjlhnf48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXnreM3oxS3V_Bdb0rcGs2fso4X1pp_DI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33880955070-ju1o940o567gtbnf4u54rnmntjlhnf48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
