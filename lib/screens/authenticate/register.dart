@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hot_brew/services/auth.dart';
 
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
 
   // text field state
@@ -20,7 +20,7 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 2.0,
-        title: Text('Sign in to Hot Brew'),
+        title: Text('Sign Up to Hot Brew'),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
@@ -49,7 +49,7 @@ class _SignInState extends State<SignIn> {
               // Sign-In Button
               RaisedButton(
                 color: Colors.pink[400],
-                child: Text('Sign in', style: TextStyle(color: Colors.white)),
+                child: Text('Register', style: TextStyle(color: Colors.white)),
                 onPressed: () async {
                   print('email: ' + email);
                   print('password: ' + password);
